@@ -985,13 +985,14 @@ window.Vue = __webpack_require__(34);
 
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_buefy___default.a);
-
 // Vue.component('example', require('./components/Example.vue'));
 
-var app = new Vue({
+/* var app = new Vue({
   el: '#app',
-  data: {}
-});
+  data: {
+    auto_password: true
+  }
+}); */
 
 $(document).ready(function () {
   //  Dropdowns

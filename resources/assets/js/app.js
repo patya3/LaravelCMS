@@ -5,13 +5,14 @@ window.Vue = require('vue');
 import Buefy from 'buefy'
 
 Vue.use(Buefy);
-
 // Vue.component('example', require('./components/Example.vue'));
 
-const app = new Vue({
+/* var app = new Vue({
   el: '#app',
-  data: {}
-});
+  data: {
+    auto_password: true
+  }
+}); */
 
 $(document).ready(function() {
   //  Dropdowns
