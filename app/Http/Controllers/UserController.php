@@ -50,7 +50,7 @@ class UserController extends Controller
             $keyspace = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $str = '';
             $max = mb_strlen($keyspace, '8bit') - 1;
-            for ($i=0; $i < $length; $i++) { 
+            for ($i=0; $i < $length; $i++) {
                 $str .= $keyspace[random_int(0,$max)];
             }
              $user->password = Hash::make($str);
@@ -115,7 +115,7 @@ class UserController extends Controller
             $keyspace = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $str = '';
             $max = mb_strlen($keyspace, '8bit') - 1;
-            for ($i=0; $i < $length; $i++) { 
+            for ($i=0; $i < $length; $i++) {
                 $str .= $keyspace[random_int(0,$max)];
             }
              $user->password = Hash::make($str);
@@ -139,6 +139,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('users.index');
+
     }
 }

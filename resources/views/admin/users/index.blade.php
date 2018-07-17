@@ -31,6 +31,13 @@
                   <td>{{$user->email}}</td>
                   <td>{{$user->created_at->toFormattedDateString()}}</td>
                   <td><a href="{{route('users.edit', $user->id)}}" class="button is-outlined">Edit</a></td>
+                  <td>
+                    <form id="deleteUser" action="{{route('users.destroy',$user->id)}}" method="post">
+                      {{method_field('DELETE')}}
+                      {{csrf_field()}}
+                    </form>
+                    <button class="button is-danger">Delete</button>
+                  </td>
                 </tr>    
               @endforeach
             </tbody>
@@ -39,4 +46,14 @@
     </div>
     {{$users->links()}}
   </div>
+@endsection
+
+@section('scripts')
+<script>
+  $('.button.is-danger').click(function() {
+    if(confirm('Are you sure, you want to delete this user?')) {
+      $('#deleteUser').submit();
+    }
+  });
+</script>
 @endsection
