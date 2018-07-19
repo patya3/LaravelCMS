@@ -18,10 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::prefix('admin')->middleware('role:superadministrator|administrator|editor|author|contributor')->group(function() {
-    Route::get('/', 'AdminController@index');
-    Route::get('/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
+    Route::get('/', 'AdminController@index')->name('admin.index');
     Route::resource('/users','UserController');
     Route::resource('/permissions','PermissionController', ['except' => 'destory']);
+
+    Route::get('/albums', 'AlbumsController@index');
+    Route::get('albums/create', 'AlbumsController@create');
+    Route::post('albums/store', 'AlbumsController@store');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

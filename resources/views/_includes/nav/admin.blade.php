@@ -4,7 +4,7 @@
       General
     </p>
     <ul class="menu-list">
-      <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+      <li><a href="{{route('admin.index')}}">Dashboard</a></li>
     </ul>
     <p class="menu-label">
       Administrator

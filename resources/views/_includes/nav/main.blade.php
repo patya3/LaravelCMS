@@ -43,7 +43,7 @@
                     </span>Notifications
                   </a>
               </li>
-              <li><a href="{{route('admin.dashboard')}}">
+              <li><a href="{{route('admin.index')}}">
                     <span class="icon">
                       <i class="fa fa-fw fa-cog m-r-5"></i>
                     </span>Settings
