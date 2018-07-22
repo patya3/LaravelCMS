@@ -43,7 +43,7 @@ class PermissionController extends Controller
                 'name' => 'required|max:255|alphadash|unique:permissions,name',
                 'description' => 'sometimes|max:255'
             ]);
-    
+
             $permission = new Permission();
             $permission->name = $request->name;
             $permission->display_name = $request->display_name;
@@ -56,7 +56,7 @@ class PermissionController extends Controller
             $this->validate($request, [
                 'resource' => 'required|min:3|max:255|alpha'
             ]);
-            
+
             $crud = explode(',',$request->crud_selected);
             if(count($crud) > 0) {
                 foreach ($crud as $x) {

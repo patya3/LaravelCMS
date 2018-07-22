@@ -1,3 +1,69 @@
+{{-- <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="{{route('home')}}" role="tab" aria-controls="home" aria-selected="true">
+          <img width="120" src="{{asset('images/devmarketer-logo.png')}}" alt="DevMarketer logo">
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#" role="tab" aria-controls="profile" aria-selected="false">Learn</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#" role="tab" aria-controls="contact" aria-selected="false">Discuss</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="share-tab" data-toggle="tab" href="#" role="tab" aria-controls="share" aria-selected="false">Share</a>
+      </li>
+    @if (Auth::guest())
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-item is-tab" href="{{route('login')}}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item is-tab" href="{{route('register')}}">Join the Community</a>
+        </li>
+      </ul>
+      @else
+          <div class="dropdown">
+              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Hey {{ Auth::user()->name }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a href="#" class="dropdown-item">
+                    <span class="icon">
+                      <i class="fa fa-fw fa-user-circle-o m-r-5"></i>
+                    </span>Profile
+                  </a>
+                  <a href="#" class="dropdown-item">
+                      <span class="icon">
+                        <i class="fa fa-fw fa-bell m-r-5"></i>
+                      </span>Notifications
+                    </a>
+                    <a href="{{route('admin.index')}}" class="dropdown-item">
+                        <span class="icon">
+                          <i class="fa fa-fw fa-cog m-r-5"></i>
+                        </span>Settings
+                      </a>
+                      <span class="seperator"></span>
+                      <a href="{{route('logout')}}" onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                    <span class="icon">
+                      <i class="fa fa-fw fa-sign-out m-r-5"></i>
+                    </span>
+                    Logout
+                  </a>
+                  @include('_includes.forms.logout')
+              </div>
+            </div>        
+  @endif
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+    <div class="tab-pane fade" id="share" role="tabpanel" aria-labelledby="share-tab">...</div>
+</div> --}}
+
+
 <nav class="nav has-shadow" >
   <div class="container">
     <div class="nav-left">

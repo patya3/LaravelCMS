@@ -18,8 +18,10 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "bootstrap": "^4.1.2",
         "buefy": "^0.4.0",
         "bulma": "^0.4.2",
-        "font-awesome": "^4.7.0"
+        "font-awesome": "^4.7.0",
+        "popper.js": "^1.14.3"
     }
 }
