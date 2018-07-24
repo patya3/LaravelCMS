@@ -32,7 +32,7 @@ Route::prefix('admin')->middleware('role:superadministrator|administrator|editor
     Route::post('/photos/store', 'PhotosController@store')->name('photos.store');
     Route::get('/photos/{id}','PhotosController@show')->name('photos.show');
     Route::delete('/albums/{id}','PhotosController@destroy')->name('photos.destroy');
-    Route::post('/photos/{id}','PhotosController@update')->name('photos.update');
+    Route::put('/photos/{id}','PhotosController@update')->name('photos.update');
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

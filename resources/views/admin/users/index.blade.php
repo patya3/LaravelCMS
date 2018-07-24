@@ -32,11 +32,14 @@
                   <td>{{$user->created_at->toFormattedDateString()}}</td>
                   <td><a href="{{route('users.edit', $user->id)}}" class="button is-outlined">Edit</a></td>
                   <td>
-                    <form id="deleteUser" action="{{route('users.destroy',$user->id)}}" method="post">
+                    <form id="delete" action="{{route('users.destroy',$user->id)}}" method="post">
                       {{method_field('DELETE')}}
                       {{csrf_field()}}
                     </form>
-                    <button class="button is-danger">Delete</button>
+                    <button class="button is-danger" @click="isComponentModalActive = true">Delete</button>
+                    <b-modal :active.sync="isComponentModalActive" has-modal-card>
+                      <modal-form></modal-form>
+                    </b-modal>
                   </td>
                 </tr>    
               @endforeach
@@ -47,13 +50,41 @@
     {{$users->links()}}
   </div>
 @endsection
-
+{{--
 @section('scripts')
-<script>
-  $('.button.is-danger').click(function() {
-    if(confirm('Are you sure, you want to delete this user?')) {
-      $('#deleteUser').submit();
-    }
-  });
-</script>
+  <script>
+
+
+      const ModalForm = {
+          template: `
+<div class="modal-card" style="width: auto">
+    <header class="modal-card-head">
+        <p class="modal-card-title">Are you sure you want to delete this item?</p>
+    </header>
+    <footer class="modal-card-foot">
+        <button class="button" type="button" @click="$parent.close()">Close</button>
+        <button id="submitDelete" class="button is-danger" onclick="document.getElementById('delete').submit()">Delete</button>
+    </footer>
+</div>
+        `
+      }
+
+      const example = {
+          components: {
+              ModalForm
+          },
+          data() {
+              return {
+                  isComponentModalActive: false,
+                  isDeleteSubmit: false
+              }
+          }
+      }
+
+
+      const app = new Vue(example)
+
+      app.$mount('#app
+  </script>
 @endsection
+--}}

@@ -24,5 +24,38 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
+  <script>
+
+
+      const ModalForm = {
+          template: `
+                <div class="modal-card" style="width: auto">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Are you sure you want to delete this item?</p>
+                    </header>
+                    <footer class="modal-card-foot">
+                        <button class="button" type="button" @click="$parent.close()">Close</button>
+                        <button id="submitDelete" class="button is-danger" onclick="document.getElementById('delete').submit()">Delete</button>
+                    </footer>
+                </div>
+                    `
+      }
+
+      const example = {
+          components: {
+              ModalForm
+          },
+          data() {
+              return {
+                  isComponentModalActive: false,
+                  isDeleteSubmit: false
+              }
+          }
+      }
+
+      const app = new Vue(example)
+
+      app.$mount('#app')
+  </script>
 </body>
 </html>
