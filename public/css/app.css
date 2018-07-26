@@ -14089,14 +14089,6 @@ button.nav-item.is-active {
   height: 4.5rem;
 }
 
-/* ========================================
-   =========== Basic stuff (modal)==========
-   ======================================== */
-
-.modal-background {
-  background-color: rgba(10, 10, 10, 0.2);
-}
-
 .m-t-5 {
   margin-top: 5px;
 }

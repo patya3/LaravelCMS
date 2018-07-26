@@ -41,12 +41,12 @@
                     {{csrf_field()}}
                     <div class="field">
                         <p class="control">
-                            <input type="text" name="title" class="input" placeholder="Photo Title">
+                            <input type="text" name="title" class="input" placeholder="Photo Title" value="{{$photo->title}}">
                         </p>
                     </div>
                     <div class="field">
                         <p class="control">
-                            <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input"></textarea>
+                            <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input">{{$photo->title}}</textarea>
                         </p>
                     </div>
                     <button class="button is-primary is-pulled-left m-r-10">Edit Photo</button>
@@ -71,12 +71,12 @@
                     {{csrf_field()}}
                     <div class="field">
                         <p class="control">
-                            <input type="text" name="title" class="input" placeholder="Photo Title">
+                            <input type="text" name="title" class="input" placeholder="Photo Title" value="{{$photo->title}}">
                         </p>
                     </div>
                     <div class="field">
                         <p class="control">
-                            <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input"></textarea>
+                            <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input">{{$photo->title}}</textarea>
                         </p>
                     </div>
                     <button class="button is-primary is-pulled-left m-r-10">Edit Photo</button>

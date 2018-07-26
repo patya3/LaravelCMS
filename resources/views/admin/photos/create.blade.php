@@ -1,7 +1,16 @@
 @extends('layouts.admin')
 
 @section('content')
-  <h3>Upload photo</h3>
+  <div class="flex-container">
+    <div class="columns m-t-10">
+      <div class="column">
+        <h1 class="title">Upload Photo</h1>
+      </div>
+      <div class="column">
+        <a href="{{route('albums.show', $album_id)}}" class="is-pulled-right button is-primary">Go back</a>
+      </div>
+    </div>
+    <hr class="m-t-0">
 
   {!!Form::open(['action' => 'PhotosController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data'])!!}
     {{Form::text('title','',['placeholder' => 'Photo Title'])}}
@@ -11,22 +20,5 @@
     {{Form::submit('submit')}}
   {!!Form::close()!!}
 
-  <div id="app" class="container">
-    <section>
-      <button class="button is-primary is-medium"
-              @click="isComponentModalActive = true">
-        Launch component modal
-      </button>
 
-      <b-modal :active.sync="isComponentModalActive" has-modal-card>
-        <modal-form v-bind="formProps"></modal-form>
-      </b-modal>
-    </section>
-
-  </div>
-@endsection
-@section('scripts')
-  <script>
-
-  </script>
 @endsection
