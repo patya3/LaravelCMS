@@ -44,7 +44,7 @@ class PhotosController extends Controller
 
         $photo->save();
 
-        return redirect()->route('albums.show',$request->album_id)->with('succes','Photo uploaded');
+        return redirect()->route('albums.show',$request->album_id)->with('success','Photo uploaded');
     }
     public function show($id) {
         $photo = Photo::find($id);
@@ -60,7 +60,7 @@ class PhotosController extends Controller
 
         $photo->save();
 
-        return redirect()->route('albums.show',$photo->album_id)->with('succes','Photo updated');
+        return redirect()->route('albums.show',$photo->album_id)->with('success','Photo updated');
     }
 
     public function destroy($id) {
@@ -71,7 +71,7 @@ class PhotosController extends Controller
         if(Storage::delete('public/photos/'.$photo->album_id.'/'.$photo->photo)) {
             $photo->delete();
 
-            return redirect()->route('albums.show',$album->id)->with('succes','photo deleted');
+            return redirect()->route('albums.show',$album->id)->with('success','photo deleted');
         }
     }
 }

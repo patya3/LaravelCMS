@@ -23,17 +23,33 @@
           @if ($i==$colcount)
             <div class="column is-one-quarter end">
               <a href="{{route('albums.show',$album->id)}}">
-                <img width="300" class="thumbnail" src="../storage/album_covers/{{$album->cover_image}}" alt="{{$album->name}}">
+                <img width="400" class="thumbnail" src="../storage/album_covers/{{$album->cover_image}}" alt="{{$album->name}}">
               </a>
               <br>
               <h4 class="title">{{$album->name}}</h4>
+                <form id="delete" action="{{route('albums.destroy',$album->id)}}" method="POST">
+                    {{method_field('DELETE')}}
+                    {{csrf_field()}}
+                </form>
+                <button class="button is-primary" @click="isComponentModalActive = true">Delete Album</button>
+                <b-modal :active.sync="isComponentModalActive" has-modal-card>
+                    <modal-form></modal-form>
+                </b-modal>
           @else
             <div class="column is-one-quarter">
               <a href="{{route('albums.show',$album->id)}}">
-                <img width="300" class="thumbnail" src="../storage/album_covers/{{$album->cover_image}}" alt="{{$album->name}}">
+                <img width="400" class="thumbnail" src="../storage/album_covers/{{$album->cover_image}}" alt="{{$album->name}}">
               </a>
               <br>
               <h4 class="title">{{$album->name}}</h4>
+                <form id="delete" action="{{route('albums.destroy',$album->id)}}" method="POST">
+                    {{method_field('DELETE')}}
+                    {{csrf_field()}}
+                </form>
+                <button class="button is-primary" @click="isComponentModalActive = true">Delete Album</button>
+                <b-modal :active.sync="isComponentModalActive" has-modal-card>
+                    <modal-form></modal-form>
+                </b-modal>
           @endif
           @if ($i % 4 == 0)
             </div>

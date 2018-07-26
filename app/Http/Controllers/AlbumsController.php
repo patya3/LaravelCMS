@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Album;
+use App\Photo;
 use Illuminate\Support\Facades\Storage;
 
 class AlbumsController extends Controller
@@ -45,26 +46,26 @@ class AlbumsController extends Controller
 
         $album->save();
 
-        return redirect()->route('albums.index')->with('succes','Album created');
+        return redirect()->route('albums.index')->with('success','Album created');
+    }
+    public function destroy($id) {
+        $album = Album::with('Photos')->find($id);
+
+        foreach ($album->photos as $photo) {
+            if(Storage::delete('public/photos/'.$photo->album_id.'/'.$photo->photo)) {
+                $photo->delete();
+            }
+            //file_put_contents('kecske.txt',$photo->title,FILE_APPEND);
+        }
+
+        if(Storage::delete('public/album_covers/'.$album->cover_image)) {
+            $album->delete();
+            return redirect()->route('albums.index')->with('success','Album deleted');
+        }
     }
 
     public function show($id) {
         $album = Album::with('Photos')->find($id);
         return view('admin.albums.show')->with('album',$album);
-    }
-
-    public function destroy($id) {
-        $album = Album::with('Photos')->find($id);
-
-        foreach ($album->photos as $key => $photo) {
-            if(Storage::delete('public/photos/'.$photo->album_id.'/'.$photo->photo)) {
-                $photo->delete();
-            }
-        }
-
-        if(Storage::delete('public/album_covers/'.$album->cover_image)) {
-            $album->delete();
-            return redirect()->route('albums.index')->with('succes','album deleted');
-        }
     }
 }

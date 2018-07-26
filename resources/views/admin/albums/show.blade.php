@@ -9,7 +9,15 @@
     <div class="column">
       <a href="{{route('albums.index')}}" class="button is-primary is-pulled-right">Go back</a>
       <a href="{{route('photos.create',$album->id)}}" class="button is-primary is-pulled-right m-r-10">Upload photo to album</a>
-      <button class="button is-primary is-pulled-right m-r-10" onclick="saveChanges()">Save changes</button>
+      {{--<button class="button is-primary is-pulled-right m-r-10" onclick="saveChanges()">Save changes</button>--}}
+        <form id="delete" action="{{route('albums.destroy', ['id' => $album->id])}}" method="post">
+            {{method_field('DELETE')}}
+            {{csrf_field()}}
+        </form>
+        <button class="button is-danger is-pulled-right m-r-10"@click="isComponentModalActive = true">Delete Album</button>
+        <b-modal :active.sync="isComponentModalActive" has-modal-card>
+            <modal-form></modal-form>
+        </b-modal>
     </div>
   </div>
   <hr>
@@ -41,13 +49,13 @@
                             <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input"></textarea>
                         </p>
                     </div>
-                    <button class="button is-primary">Edit Photo</button>
+                    <button class="button is-primary is-pulled-left m-r-10">Edit Photo</button>
                 </form>
                 <form id="delete" action="{{route('photos.destroy', $photo->id)}}" method="post">
                     {{method_field('DELETE')}}
                     {{csrf_field()}}
                 </form>
-                <button class="button is-primary"@click="isComponentModalActive = true">Delete Photo</button>
+                <button class="button is-danger is-pulled-left"@click="isComponentModalActive = true">Delete Photo</button>
                 <b-modal :active.sync="isComponentModalActive" has-modal-card>
                     <modal-form></modal-form>
                 </b-modal>
@@ -71,13 +79,13 @@
                             <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input"></textarea>
                         </p>
                     </div>
-                    <button class="button is-primary">Edit Photo</button>
+                    <button class="button is-primary is-pulled-left m-r-10">Edit Photo</button>
                 </form>
                 <form id="delete" action="{{route('photos.destroy', $photo->id)}}" method="post">
                     {{method_field('DELETE')}}
                     {{csrf_field()}}
                 </form>
-                <button class="button is-primary"@click="isComponentModalActive = true">Delete Photo</button>
+                <button class="button is-danger is-pulled-left"@click="isComponentModalActive = true">Delete Photo</button>
                 <b-modal :active.sync="isComponentModalActive" has-modal-card>
                     <modal-form></modal-form>
                 </b-modal>

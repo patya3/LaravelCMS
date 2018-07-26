@@ -26,7 +26,7 @@ Route::prefix('admin')->middleware('role:superadministrator|administrator|editor
     Route::get('/albums/create', 'AlbumsController@create')->name('albums.create');
     Route::get('/albums/{id}', 'AlbumsController@show')->name('albums.show');
     Route::post('/albums/store', 'AlbumsController@store')->name('albums.store');
-    Route::delete('/albums','AlbumsController@destroy')->name('albums.destroy');
+    Route::delete('/albums/destroy/{id}','AlbumsController@destroy')->name('albums.destroy');
 
     Route::get('/photos/create/{id}', 'PhotosController@create')->name('photos.create');
     Route::post('/photos/store', 'PhotosController@store')->name('photos.store');
