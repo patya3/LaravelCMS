@@ -52,6 +52,12 @@ class PhotosController extends Controller
     }
 
     public function update(Request $request, $id) {
+
+        $this->validate($request, [
+           'title' => 'required|max:60',
+           'description' => 'sometimes|max:255'
+        ]);
+
         $photo = Photo::find($id);
         
         //update description and title

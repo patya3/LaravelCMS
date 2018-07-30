@@ -21,6 +21,7 @@ Route::prefix('admin')->middleware('role:superadministrator|administrator|editor
     Route::get('/', 'AdminController@index')->name('admin.index');
     Route::resource('/users','UserController');
     Route::resource('/permissions','PermissionController', ['except' => 'destory']);
+    Route::resource('/roles','RoleController', ['except' => 'destory']);
 
     Route::get('/albums', 'AlbumsController@index')->name('albums.index');
     Route::get('/albums/create', 'AlbumsController@create')->name('albums.create');

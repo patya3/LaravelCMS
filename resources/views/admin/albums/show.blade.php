@@ -46,7 +46,7 @@
                     </div>
                     <div class="field">
                         <p class="control">
-                            <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input">{{$photo->title}}</textarea>
+                            <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input">{{$photo->description}}</textarea>
                         </p>
                     </div>
                     <button class="button is-primary is-pulled-left m-r-10">Edit Photo</button>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="field">
                         <p class="control">
-                            <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input">{{$photo->title}}</textarea>
+                            <textarea name="description" placeholder="Photo Description" cols="30" rows="10" class="input">{{$photo->description}}</textarea>
                         </p>
                     </div>
                     <button class="button is-primary is-pulled-left m-r-10">Edit Photo</button>

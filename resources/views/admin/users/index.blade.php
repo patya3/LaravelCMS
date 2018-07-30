@@ -30,13 +30,14 @@
                   <td>{{$user->name}}</td>
                   <td>{{$user->email}}</td>
                   <td>{{$user->created_at->toFormattedDateString()}}</td>
-                  <td><a href="{{route('users.edit', $user->id)}}" class="button is-outlined">Edit</a></td>
                   <td>
+                    <a href="{{route('users.show', $user->id)}}" class="button is-pulled-left is-outlined m-r-10">View</a>
+                    <a href="{{route('users.edit', $user->id)}}" class="button is-pulled-left is-outlined m-r-10">Edit</a>
                     <form id="delete" action="{{route('users.destroy',$user->id)}}" method="post">
                       {{method_field('DELETE')}}
                       {{csrf_field()}}
                     </form>
-                    <button class="button is-danger" @click="isComponentModalActive = true">Delete</button>
+                    <button class="button is-danger is-pulled-left" @click="isComponentModalActive = true">Delete</button>
                     <b-modal :active.sync="isComponentModalActive" has-modal-card>
                       <modal-form></modal-form>
                     </b-modal>
